@@ -1,0 +1,64 @@
+﻿<Window x:Class="CharacterEvolution.ComputerUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ComputerUI" Height="250" Width="400" WindowStyle="None" AllowsTransparency="True">
+    <Window.Background>
+        <ImageBrush  ImageSource="ima/Computer.png"></ImageBrush>
+    </Window.Background>
+    <Window.Triggers>
+        <EventTrigger SourceName="FloatBorder" RoutedEvent="Border.MouseMove">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="FloatBorder" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger SourceName="FloatBorder" RoutedEvent="Border.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="FloatBorder" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.5"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Border Name="WindowBorder" >
+        <Canvas>
+            <Border Name="ScreenBorder"  Width="283" Height="174" Margin="57,22,60,54" Background="Red">
+                <Canvas >
+                    <Border Name="ShowImagBorder" Width="223" Height="100" Margin="30,20,30,24">
+                        <Canvas>
+                            <Border Name="LeftImageBorder" Width="100" Height="100" Margin="0,0,123,0" Background="Blue"></Border>
+                            <Border Name="RighImaeBorder" Width="100" Height="100" Background="Blue" Canvas.Left="123"/>
+                        </Canvas>
+                    </Border>
+                    <Border  Name="FloatBorder"  Width="283" Height="30" Margin="0,144,0,0" Background="Gray" >
+                        <Canvas Name="FloatCanvas">
+                            <Border Name="LeftButtonBorder" Width="30" Height="30" Margin="14,0,239,0" MouseDown="LeftButtonBorderClicik_MouseDown">
+                                <Image Source="ima/Leftmini.png"></Image>
+                            </Border>
+                            <Border Name="HomeButtonBorder" Width="30" Height="30" Margin="58,0,205,0" MouseDown="HomeButtonBorderClick_MouseDown">
+                                <Image Source="ima/homemini.png"></Image>
+                            </Border>
+                            <Border Name="SearchTextBoxBorder" Width="80" Height="30" Margin="102,0,101,0" >
+                                <TextBox Name="SearchTextbox" FontSize="20" Text="    搜索" BorderThickness="3" KeyDown="SearchTextboxEndInput_KeyDown">
+                                    <TextBox.Background>
+                                        <ImageBrush ImageSource="ima/SearchSkin.png"></ImageBrush>
+                                    </TextBox.Background>
+                                </TextBox>
+                            </Border>
+                            <Border Name="SkinButtonBorder" Width="30" Height="30" Margin="196,0,73,0" MouseDown="SkinButtnBorderClick_MouseDown">
+                                <Image Source="ima/Skinmini.png"></Image>
+                            </Border>
+                            <Border Name="RightButtonBorder" Width="30" Height="30" Margin="238,0,13,0" MouseDown="RightButtonBorderClicik_MouseDown" >
+                                <Image Source="ima/Rightmini.png"></Image>
+                            </Border>
+                        </Canvas>
+                    </Border>
+                </Canvas>
+            </Border>
+            <Border Name="MoveWindowBorder" Width="380" Height="20" Margin="10,215,10,15" MouseLeftButtonDown="MoveWindowBorder_MouseLeftButtonDown" MouseEnter="MoveWindowCurserChange_MouseEnter">
+                <Rectangle Width="380" Height="20" Fill="#FFAFDAD4"></Rectangle>
+            </Border>
+        </Canvas>
+    </Border>
+</Window>

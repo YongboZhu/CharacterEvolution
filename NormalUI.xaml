@@ -1,0 +1,292 @@
+﻿<Window x:Class="CharacterEvolution.NormalUI"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="NormalUI" Height="480" Width="800" WindowStyle="None" AllowsTransparency="True">
+    <Window.Triggers>
+        <!--主按钮按钮放上变色-->
+        <EventTrigger SourceName="HomeBorder" RoutedEvent="Border.MouseMove">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="homeBrush" Storyboard.TargetProperty="Color" To="Gray" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--皮肤按钮放上时变色-->
+        <EventTrigger SourceName="SkinBorder" RoutedEvent="Border.MouseMove">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="skinBrush" Storyboard.TargetProperty="Color" To="Gray" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--主按钮按钮鼠标离开时变色-->
+        <EventTrigger SourceName="HomeBorder" RoutedEvent="Border.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="homeBrush" Storyboard.TargetProperty="Color" To="Transparent" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--主按钮按钮离开时变色-->
+        <EventTrigger SourceName="SkinBorder" RoutedEvent="Border.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="skinBrush" Storyboard.TargetProperty="Color" To="Transparent" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--关闭按钮放上变色-->
+        <EventTrigger SourceName="ColseBorder" RoutedEvent="Border.MouseMove">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="ColseBrush" Storyboard.TargetProperty="Color" To="Red" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--最小化按钮放上时变色-->
+        <EventTrigger SourceName="MinBorder" RoutedEvent="Border.MouseMove">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="MinBrush" Storyboard.TargetProperty="Color" To="Red" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--关闭按钮鼠标离开时变色-->
+        <EventTrigger SourceName="ColseBorder" RoutedEvent="Border.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="ColseBrush" Storyboard.TargetProperty="Color" To="Transparent" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--最小化按钮离开时变色-->
+        <EventTrigger SourceName="MinBorder" RoutedEvent="Border.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <ColorAnimation Storyboard.TargetName="MinBrush" Storyboard.TargetProperty="Color" To="Transparent" Duration="0:0:0.1"></ColorAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--页底灰色浮动-->
+        <EventTrigger SourceName="FootBorder" RoutedEvent="Border.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="FootBorder" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:0.1"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--页底灰色消失-->
+        <EventTrigger SourceName="FootBorder" RoutedEvent="Border.MouseMove">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="FootBorder" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+    </Window.Triggers>
+    <Border Name="MainBorder" CornerRadius="5" BorderThickness="1" BorderBrush="Black">
+        <Canvas Name="MainCanvas">
+         
+            <!--主界面头部分-->
+            <Border Name="HeadBorder" Width="800" Height="110" Opacity="1">
+                <Canvas>
+                    <Border Width="600" Height="110" Name="MoveWindwoQzon" MouseLeftButtonDown="MainWindwMove_MouseLeftButtonDown">
+                        <Canvas Margin="283,0,50,0">
+                            <Border Name="LogoBorder" Width="80" Height="80" Margin="20" BorderThickness="3" CornerRadius="10">
+                                <Image Source="ima/Logo.png" />
+                            </Border>
+                            <Border Name="TitileBorder" Width="140" Height="30" Margin="110,60">
+                                <Image Source="ima/Title.png" />
+                            </Border>
+                        </Canvas>
+                    </Border>
+                    <Border Name="ButtonBorde" Width="200" Height="40" Margin="600,0">
+                        <Canvas>
+                            <!--<Polygon Points="40,0,200,0,200,40,0,40" Fill="Yellow" Opacity="0.2"/>-->
+                            <Border Width="40" Height="40"></Border>
+                            <Border Name="HomeBorder" Width="40" Height="40" Margin="40,0" MouseDown="MainMenuMessageShow_MouseDown">
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="homeBrush"/>
+                                </Border.Background>
+                                <Image Source="ima/MainMenu.png"/>
+                            </Border>
+                            <Border Name="SkinBorder" Width="40" Height="40" Margin="80,0" MouseDown="ChangeSkin_MouseDown">
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="skinBrush"/>
+                                </Border.Background>
+                                <Image Source="ima/ChangeSkin.png"/>
+                            </Border>
+                            <Border Name="MinBorder" Width="40" Height="40" Margin="120,0" MouseDown="MinWindow_MouseDown">
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="MinBrush"/>
+                                </Border.Background>
+                                <Image Source="ima/MinWindow.png"/>
+                            </Border>
+                            <Border Name="ColseBorder" Width="40" Height="40" Margin="160,0" MouseDown="CloseWindow_MouseDown" >
+                                <Border.Background>
+                                    <SolidColorBrush x:Name="ColseBrush"/>
+                                </Border.Background>
+                                <Image Source="ima/Close.png"/>
+                            </Border>
+                        </Canvas>
+                    </Border>
+                </Canvas>
+            </Border>
+            <!--主界面中间主体部分-->
+            <Grid Name="CenterPanelGrid" Width="800" Height="370" Background="{x:Null}" Canvas.Top="110"/>
+            <!--主界面页脚部分-->
+            <Border Name="FootBorder" Width="800" Height="35" Background="LightGray" Margin="0,445,0,0">
+                <Canvas>
+                    
+                  
+                    <Border Width="35" Height="35" Margin="600,0" MouseDown="ReturnHomePage_MouseDown">
+                        <Image Source="ima/HomeIcon.png" />
+                    </Border>
+                    <Border Width="35" Height="35" Margin="650,0" MouseDown="EnterEditImagePage_MouseDown">
+                        <Image Source="ima/EditImageIcon.png" />
+                    </Border>
+                    <Border Width="35" Height="35" Margin="700,0" MouseDown="EnterLittleGamePge_MouseDown">
+                        <Image Source="ima/GameIcon.png" />
+                    </Border>
+                </Canvas>
+            </Border>
+            <!--主菜单界面-->
+            <Border Name="MainMenuBorder" Width="100" MinHeight="80" MaxHeight="220" Margin="800,0" Background="Silver">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Expander Header="界面设计"  Grid.Row="1">
+                        <Expander.Content>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="19*"/>
+                                    <ColumnDefinition Width="30*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="主界面" Margin="10,0" Grid.ColumnSpan="2" Opacity="0.4"></TextBlock>
+                                <TextBlock Text="迷你界面" Margin="10,15" Grid.ColumnSpan="2" MouseDown="EnterMiniWindow_MouseDown"></TextBlock>
+
+                            </Grid>
+                        </Expander.Content>
+                    </Expander>
+                    <Expander Header="设置"  Grid.Row="2">
+                        <Expander.Content>
+                            <Grid>
+                                <TextBlock Text="  透明度"/>
+                                <ProgressBar Minimum="0" MaxHeight="100" Margin="5,20" Width="80" Foreground="Green" Value="100" ></ProgressBar>
+                            </Grid>
+                        </Expander.Content>
+                    </Expander>
+                    <TextBlock Text="  帮助"  Grid.Row="3" MouseDown="OpenHelpWindw_MouseDown"/>
+                    <TextBlock Text="  退出"  Grid.Row="4" Foreground="Red"  MouseDown="CloseWindow_MouseDown"/>
+                </Grid>
+            </Border>
+            <!--更换皮肤界面-->
+            <Border Name="ChangeSkinBorder" Width="300" Height="300" Margin="300,120" Background="Cornsilk" BorderBrush="Black" BorderThickness="1" Visibility="Hidden" AllowDrop="True" >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Canvas Grid.Row="0">
+                        <TextBlock Text="设置皮肤风格" FontSize="18" Foreground="Red"></TextBlock>
+                        <Border Width="20" Height="20"  Margin="279,0" Background="Red" MouseDown="SetColorWindowClose_MouseDown">
+                            <Image Source="ima/miniClose.png" ></Image>
+                        </Border>
+                        <Border Width="280" Height="20" >
+                            <TextBlock Text="设置皮肤风格" FontSize="18" Foreground="Red"></TextBlock>
+                        </Border>
+                    </Canvas>
+                    <Expander Name="PureColorExpander" Header="纯色皮肤" Grid.Row="1" IsExpanded="False" >
+                        <Grid Width="280,236">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="59"></RowDefinition>
+                                <RowDefinition Height="59"></RowDefinition>
+                                <RowDefinition Height="59"></RowDefinition>
+                                <RowDefinition Height="59"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="70"></ColumnDefinition>
+                                <ColumnDefinition  Width="70"></ColumnDefinition>
+                                <ColumnDefinition  Width="70"></ColumnDefinition>
+                                <ColumnDefinition  Width="70"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Border Width="50" Height="50" Grid.Row="0" Grid.Column="0" Background="Red" MouseDown="ChangeColor1_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="0" Grid.Column="1" Background="Blue"  MouseDown="ChangeColor2_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="0" Grid.Column="2" Background="Pink"  MouseDown="ChangeColor3_MouseDown"  ></Border>
+                            <Border Width="50" Height="50" Grid.Row="0" Grid.Column="3" Background="Gray" MouseDown="ChangeColor4_MouseDown"></Border>
+                            <Border Width="50" Height="50" Grid.Row="1" Grid.Column="0" Background="Navy" MouseDown="ChangeColor5_MouseDown"></Border>
+                            <Border Width="50" Height="50" Grid.Row="1" Grid.Column="1" Background="DarkCyan"  MouseDown="ChangeColor6_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="1" Grid.Column="2" Background="Aqua"  MouseDown="ChangeColor7_MouseDown"></Border>
+                            <Border Width="50" Height="50" Grid.Row="1" Grid.Column="3" Background="DarkGoldenrod" MouseDown="ChangeColor8_MouseDown"></Border>
+                            <Border Width="50" Height="50" Grid.Row="2" Grid.Column="0" Background="Black" MouseDown="ChangeColor9_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="2" Grid.Column="1" Background="Brown"  MouseDown="ChangeColor10_MouseDown"></Border>
+                            <Border Width="50" Height="50" Grid.Row="2" Grid.Column="2" Background="BurlyWood"  MouseDown="ChangeColor11_MouseDown"></Border>
+                            <Border Width="50" Height="50" Grid.Row="2" Grid.Column="3" Background="Chocolate" MouseDown="ChangeColor12_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="3" Grid.Column="0" Background="Coral"  MouseDown="ChangeColor13_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="3" Grid.Column="1" Background="Green" MouseDown="ChangeColor14_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="3" Grid.Column="2" Background="Firebrick"  MouseDown="ChangeColor15_MouseDown" ></Border>
+                            <Border Width="50" Height="50" Grid.Row="3" Grid.Column="3" Background="GreenYellow"  MouseDown="ChangeColor16_MouseDown"></Border>
+
+                        </Grid>
+                    </Expander>
+                    <Expander Name="SceneryExpander" Header="彩色皮肤" Grid.Row="2" IsExpanded="True"  Expanded="SceneryExpanderChange_Expanded">
+                        <Grid Width="280,236">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="70"></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+                                <RowDefinition Height="70"></RowDefinition>
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition  Width="90"></ColumnDefinition>
+                                <ColumnDefinition  Width="90"></ColumnDefinition>
+                                <ColumnDefinition  Width="90"></ColumnDefinition>
+
+                            </Grid.ColumnDefinitions>
+                            <Border Width="60" Height="60" Grid.Row="0" Grid.Column="0" MouseDown="ChangeSkin1_MouseDown" >
+                                <Border.Background>
+                                    <ImageBrush  ImageSource="Skin/SpringSkinMini.jpg" />
+                                </Border.Background>
+                            </Border>
+                            <Border Width="60" Height="60" Grid.Row="0" Grid.Column="1" MouseDown="ChangeSkin2_MouseDown" >
+                                <Image Source="Skin/BallMini.jpg"/>
+                            </Border>
+                            <Border Width="60" Height="60" Grid.Row="0" Grid.Column="2" Background="Blue"   MouseDown="ChangeSkin3_MouseDown">
+                                <Image Source="Skin/FlowerMini.jpg"/>
+                            </Border>
+
+                            <Border Width="60" Height="60" Grid.Row="1" Grid.Column="0" Background="Blue" MouseDown="ChangeSkin4_MouseDown">
+                                <Image Source="Skin/PaintMini.jpg"/>
+                            </Border>
+                            <Border Width="60" Height="60" Grid.Row="1" Grid.Column="1" Background="Blue" MouseDown="ChangeSkin5_MouseDown">
+                                <Image Source="Skin/TownMini.jpg"/>
+                            </Border>
+                            <Border Width="60" Height="60" Grid.Row="1" Grid.Column="2" Background="Blue" MouseDown="ChangeSkin6_MouseDown" >
+                                <Image Source="Skin/SeaMini.jpg"/>
+                            </Border>
+
+                            <Border Width="60" Height="60" Grid.Row="2" Grid.Column="0" Background="Blue" MouseDown="ChangeSkin7_MouseDown">
+                                <Image Source="Skin/YellowMini.jpg"/>
+                            </Border>
+                            <Border Width="60" Height="60" Grid.Row="2" Grid.Column="1" Background="Blue" MouseDown="ChangeSkin8_MouseDown">
+                                <Image Source="Skin/PurpeMini.jpg"/>
+                            </Border>
+                            <Border Width="60" Height="60" Grid.Row="2" Grid.Column="2" Background="Blue" MouseDown="ChangeSkin9_MouseDown">
+                                <Image Source="Skin/BeachMini.jpg"/>
+                            </Border>
+
+
+                        </Grid>
+                    </Expander>
+                </Grid>
+            </Border>
+        </Canvas>
+    </Border>
+</Window>

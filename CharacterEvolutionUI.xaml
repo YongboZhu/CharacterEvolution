@@ -1,0 +1,80 @@
+﻿<Window x:Class="CharacterEvolution.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="300" Width="300" WindowStyle="None" AllowsTransparency="True" ResizeMode="NoResize">
+    <Window.Triggers>
+        <!--进入主Border四个按钮显示-->
+        <EventTrigger SourceName="Main_Btn" RoutedEvent="Border.MouseMove">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="Left" Storyboard.TargetProperty="Opacity"  To="1" Duration="0:0:1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Top" Storyboard.TargetProperty="Opacity"  To="1" Duration="0:0:1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Right" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Down" Storyboard.TargetProperty="Opacity"  To="1" Duration="0:0:1"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--鼠标离开主Border四个按钮以及输入框隐藏-->
+        <EventTrigger SourceName="Main_Btn" RoutedEvent="Border.MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="Left" Storyboard.TargetProperty="Opacity"  To="0" Duration="0:0:1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Top" Storyboard.TargetProperty="Opacity"  To="0" Duration="0:0:1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Right" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Down" Storyboard.TargetProperty="Opacity"  To="0" Duration="0:0:1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Message_Text"  Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:1" ></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <!--单击主Border中间搜索框显示-->
+        <EventTrigger  SourceName="Main_Btn"  RoutedEvent="Border.MouseRightButtonDown">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="Message_Text"  Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1" ></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+        <EventTrigger  SourceName="GridButton" RoutedEvent="Button.MouseMove" >
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetName="Left" Storyboard.TargetProperty="Opacity"  To="1" Duration="0:0:0.1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Top" Storyboard.TargetProperty="Opacity"  To="1" Duration="0:0:0.1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Right" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:0.1"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetName="Down" Storyboard.TargetProperty="Opacity"  To="1" Duration="0:0:0.1"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+     </Window.Triggers>
+    <Window.Background>
+        <ImageBrush ImageSource="ima/Window.png"></ImageBrush>
+    </Window.Background>
+    <Border>
+        <Canvas>
+            <Grid Height="300" Width="300" Name="GridButton">
+                <Border  Name="Left"  Width="50" Height="50" Margin="0,125,210,125" HorizontalAlignment="Right" MouseDown="LeftBtn_MouseDown" MouseUp="LeftBtn_MouseUp">
+                    <Image Source="ima/left.png" ></Image>
+                 </Border>
+                <Border Name="Top"  Width="50" Height="50" Margin="125,40,125,210" HorizontalAlignment="Right" VerticalAlignment="Top" MouseDown="MouseTop_MouseDown">
+                     <Image Source="ima/home.png" ></Image>
+                </Border >
+                <Border Name="Right"  Width="50" Height="50" Margin="210,125,40,125" MouseDown="RightBtn_MouseDown" MouseUp="RightBtn_MouseUp">
+                     <Image Source="ima/right.png" ></Image>
+                  </Border>
+                <Border Name="Down"  Width="50" Height="50" Margin="125,210,125,40" MouseDown="DownBtn_MouseDown">
+                    <Image Source="ima/Skin.png" ></Image>
+                 </Border>
+            </Grid>
+            <Border Name="Main_Btn" Background="#FF363333"  Margin="100,100,100,100" BorderThickness="2" MouseLeftButtonDown="MainBorderMove_MouseLeftButtonDown" CornerRadius="10">
+                <Border Name="borderImage" Width="100" Height="100">
+                <Grid Name="MainShowMessage">
+                    <TextBox Name="Message_Text" Width="80" Height="30" FontSize="24" Text="   搜索 " KeyDown="Textbox_Enter">
+                        <TextBox.Background>
+                            <ImageBrush ImageSource="ima/SearchSkin.png"></ImageBrush>
+                        </TextBox.Background>
+                    </TextBox>
+                </Grid>
+                </Border>
+            </Border>
+        </Canvas>
+    </Border>
+</Window>

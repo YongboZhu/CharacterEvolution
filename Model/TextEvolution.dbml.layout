@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="TextEvolution">
+  <DataContextMoniker Name="/TextEvolutionDataContext" />
+  <nestedChildShapes>
+    <classShape Id="87479fc3-6f90-4784-b716-18abcf63fe8e" absoluteBounds="0.75, 0.75, 2, 1.3525109863281251">
+      <DataClassMoniker Name="/TextEvolutionDataContext/GameImage" />
+      <nestedChildShapes>
+        <elementListCompartment Id="70ac71c0-df4e-445c-819d-75bf52f92ba0" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.792510986328125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="24177baa-7bab-4692-8b57-9cca35ae0055" absoluteBounds="3.75, 0.75, 2, 1.9068933105468751">
+      <DataClassMoniker Name="/TextEvolutionDataContext/TextEvolution" />
+      <nestedChildShapes>
+        <elementListCompartment Id="6e448318-4d39-4b48-aee9-dd3a3fde245c" absoluteBounds="3.765, 1.21, 1.9700000000000002, 1.346893310546875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
